@@ -1,0 +1,7 @@
+
+<%= simple_form_for([ @item, @review ] , remote: true) do |f| %>
+  <%= f.input :title, input_html: {placeholder: "Titre"}, error: "Titre invalide", label: false %>
+  <%= f.input :content, as: :text, input_html: {placeholder: " Votre Message"}, id: "area",label: false, error: "Votre message doit faire 20 caractères min"  %>
+  <%= f.input :name, input_html: {placeholder: "Name"}, error: "Nom invalide", label: false %>
+  <%= f.submit "Commenter", class: "btn btn-dark", id: "formbBtn" %>
+<% end %>

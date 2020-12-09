@@ -1,0 +1,78 @@
+#containerPresentation{
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border-top: solid 1px black;
+  border-bottom: solid 1px black;
+  min-height: 5vh !important;
+}
+#cardNav{
+  margin-top: 0% !important;
+  margin-bottom: 2% !important;
+  border-bottom: solid 1px black;
+  min-height: 5vh !important;
+}
+.big-img{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4) ), url(asset-path("table.jpg"));
+  background-repeat: no-repeat;
+  // background-attachment: fixed !important;
+  background-size: cover !important;
+  background-position: center;
+  min-height: 60vw;
+  height: 100%;
+  width: 100%;
+  margin-top: -5%;
+  position: relative;
+}
+.mon-histoire{
+  margin-top: 5%;
+  max-height: 25vw !important;
+}
+.presentation{
+  margin-top: 5%;
+  margin-bottom:3%;
+}
+.presentation h1 {
+  color:black !important;
+  text-align: left;
+}
+
+.presentation p {
+  text-align: left;
+  font-size: 2em;
+  color:black !important;
+}
+#imglogo{
+  position: absolute;
+  top: 10%;
+  right: 0;
+  width: 30%;
+  height: 50%;
+}
+.cards{
+  margin-bottom: 3%;
+}
+@media (min-width: 100px) and (max-width: 768px) {
+  .presentation{
+    margin: 1% ;
+  }
+  .presentation h1 {
+    color:white;
+    text-align: left;
+  }
+
+  .presentation p {
+    text-align: left;
+    font-size: 1.5em;
+    color:white;
+  }
+  .big-img{
+    min-height: 200vw !important;
+    margin-top: -20%;
+  }
+  #imglogo{
+    margin-top: 10%;
+    width: 60%;
+    height: 30%;
+  }
+}
+

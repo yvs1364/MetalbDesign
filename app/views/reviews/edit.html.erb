@@ -1,0 +1,8 @@
+<div class="container-fluid" >
+  <div class="container">
+    <%= simple_form_for([ @item, @review ]) do |f| %>
+      <%= f.input :content %>
+      <%= f.button :submit, class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>

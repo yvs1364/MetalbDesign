@@ -1,0 +1,10 @@
+/*
+*= require_self
+*= require_tree .
+*= require jquery.mobile
+ *= require jquery-ui
+ */
+
+ @import "bootstrap/scss/bootstrap";
+ @import "components/index";
+ @import "font-awesome";

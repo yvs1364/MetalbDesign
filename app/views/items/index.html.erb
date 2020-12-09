@@ -1,0 +1,44 @@
+<div class="container-fluid">
+  <h1 id="titleCreate">Mes réalisations sur mesure</h1>
+  <div class="carte">
+    <% @items.each do |item| %>
+    <div class="card">
+      <div class="top-section">
+        <% tof=[] %>
+        <% item.photos.each do |photo| %>
+        <% tof.push(photo.key) %>
+        <% end %>
+        <%= cl_image_tag tof.first, id: "image-container", :crop => "fill" %>
+      </div>
+      <div class="product-info">
+        <div class="name"><%= item.name %></div>
+        <div class="des"><%= item.description %></div>
+        <%= link_to "Voir plus", item_path(item), class: "btnn"  %>
+        <% if user_signed_in? %>
+        <%= link_to item_path(item), method: :delete, data: { confirm:  "tes sur de vouloir supprimé ce meuble Zehbi ?" } do %>
+        <i class="fa fa-trash" style="font-size: 2em; color: gray;"></i>
+        <% end %>
+        <%= link_to edit_item_path(item) do %>
+        <i class="fa fa-pencil" style="font-size: 2em; color: gray;"></i>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="clear"></div>
+<script type="text/javascript">
+  var container = document.getElementById("image-container")
+
+  function change_img(image){
+    var selectPictures = document.getElementsByClassName("picture")
+    container.src = image.src;
+
+    for (let selectPicture of selectPictures) {
+      if(image !== selectPicture) selectPicture.classList.remove('active');
+    }
+    image.classList.toggle('active');
+  }
+</script>

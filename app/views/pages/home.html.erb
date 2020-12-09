@@ -1,0 +1,74 @@
+<div class="big-img">
+ <%= image_tag "logo.png", id: "imglogo" %>
+ <div class="arrow bounce" id="down">
+  <i class="fa fa-arrow-down"></i>
+</div>
+</div>
+
+
+<div class="container-fluid" id="containerPresentation">
+  <div class="presentation">
+    <h1> Mon histoire </h1>
+    <br>
+    <p>Formé par les compagnons du tour de France dans le domaine de la métallerie et de la ferronnerie d’art, je conçois et fabrique tous types d’ouvrages.
+      Très à l’écoute de vos besoins et de vos envies,
+      je mettrai toute mon habilité et ma passion  à votre service afin de mener à bien les projets qui vous tiennent à cœur.
+      Respect des délais et savoir faire font de mon entreprise un gage de qualité.
+      À l’opposé de la grande distribution, mes créations sont uniques.
+      Chaque ouvrage proposé est dessiné et élaboré par mes soins,
+    valorisant les matières nobles comme le bois et le métal afin d’allier l’élégance des lignes  à l’exigence de la qualité.</p>
+  </div>
+</div>
+
+<div class="container-fluid" id="cardNav">
+  <div class="cards">
+<!--     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+      Sur-mesure
+    </div> -->
+      <%= link_to  items_path do %>
+      <div class="card-category">
+        <img src="<%= asset_url('table-salon.jpg') %>" id="photo-creation">
+        <h2>Mes réalisations</h2>
+      </div>
+    <% end %>
+    <%= link_to new_contact_path do %>
+      <div class="card-category">
+        <img src="<%= asset_url('letter.jpg') %>" id="photo-contact">
+        <h2>Me contacter</h2>
+      </div>
+  <% end %>
+  </div>
+</div>
+
+
+<div class="container-fluid" style="margin-bottom: 2% !important; margin-top: 0 !important">
+  <h1>Mes dernières réalistaions</h1>
+  <br>
+  <div class="carde">
+    <%  @items.order(id: :desc).first(3).each do |item| %>
+    <%= link_to  item_path(item) do %>
+    <div class="card-trip">
+        <% tof=[] %>
+      <% item.photos.each do |photo| %>
+      <% tof.push(photo.key) %>
+        <% end %>
+      <%= cl_image_tag tof.first, :crop=>"fill" %>
+
+      <div class="card-trip-infos">
+        <div>
+          <h2 style="color: black !important;"><%= item.name %></h2>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $("#down").click(function() {
+    $('html,body').animate({
+      scrollTop: $(".presentation").offset().top},
+      'slow');
+  });
+</script>

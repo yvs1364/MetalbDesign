@@ -1,0 +1,31 @@
+<div class="website-info">
+  <div class="wrapper">
+    <div class="website-info__container text-center">
+      <div class="row">
+        <div class="col-sm-4 website-info__item">
+          <p class="larger-font">Contact:</p>
+          <p class="large-font"><i><%= fa_icon "envelope" %></i> : MetalB.bastien.j@gmail.com</p>
+          <p class="large-font"><i><%= fa_icon "phone" %></i> : Tél: 07.78.82.09.73</p>
+        </div>
+        <div class="col-sm-4 website-info__item">
+          <p class="pacifico-font larger-font">Suivez moi:</p>
+          <a href="#" target="_blank" class="social-media-link"><i class="fa fa-fw fa-facebook"></i></a>
+        </div>
+        <div class="col-sm-4 website-info__item">
+          <% if user_signed_in? %>
+        <p>- <%= link_to "Reviews json", api_v1_reviews_path, class: "large-font" %></p>
+         <p>- <%= link_to "Items json ", api_v1_items_path, class: "large-font" %><p>
+          <% else %>
+          <%= link_to new_user_session_path do %><p id="co"><i><%= fa_icon "user" %></i> Ce connecté (seulement pour les admins)</p>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <p class="align-middle"> MétalBDesign &copy; 2020. All Rights Reserved.</p>
+</div>
+</div>
+

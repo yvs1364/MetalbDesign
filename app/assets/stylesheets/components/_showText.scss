@@ -1,0 +1,13 @@
+.titleShow{
+  border-bottom: 1px solid black;
+  text-align: center;
+  font-size: 5em;
+  padding: 20px;
+  margin-bottom: 2%;
+}
+@media (min-width: 100px) and (max-width: 600px){
+  .titleShow {
+    font-size: 2.5em;
+    margin-bottom: 6%;
+  }
+}

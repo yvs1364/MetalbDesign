@@ -1,0 +1,45 @@
+#bodyAll{
+  background-color: #EBEBEB;
+  background-size: cover;
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+h1, h2, h3, h4, h5, h6 , a, span {
+  font-family: Oswald !important;
+}
+p, label, input_html{
+ color: black !important;
+ font-family: Khula sans-serif;
+ text-align: justify !important;
+ font-size: 1.5em;
+ letter-spacing: -1px !important;
+}
+
+#pDescription{
+  display: block !important;
+  width: 20em;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+}
+a {
+  font-size: 1.5em;
+}
+
+.container-fluid{
+  margin-top: 5%;
+  min-height: 80vh;
+}
+@media (min-width: 100px) and (max-width: 419px) {
+  .container-fluid{
+    margin-top: 25%;
+  }
+}
+@media (min-width: 420px) and (max-width: 768px){
+  .container-fluid{
+    margin-top: 20%;
+  }
+}

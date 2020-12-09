@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Primary Meta Tags -->
+  <title>MétalBDesign</title>
+  <meta name="title" content="MétalBDesign">
+  <meta name="description" content="Formé par les compagnons du tour de France dans le domaine de la métallerie et de la ferronnerie d’art,
+    je conçois et fabrique tous types d’ouvrages.
+    Très à l’écoute de vos besoins et de vos envies.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.metalbdesign.fr/">
+  <meta property="og:title" content="MétalBDesign">
+  <meta property="og:description" content="Formé par les compagnons du tour de France dans le domaine de la métallerie et de la ferronnerie d’art,
+    je conçois et fabrique tous types d’ouvrages.
+    Très à l’écoute de vos besoins et de vos envies.">
+  <meta property="og:image" content="https://www.metalbdesign.fr/assets/images/metalbdesign.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.metalbdesign.fr/">
+  <meta property="twitter:title" content="MétalBDesign">
+  <meta property="twitter:description" content="Formé par les compagnons du tour de France dans le domaine de la métallerie et de la ferronnerie d’art,
+    je conçois et fabrique tous types d’ouvrages.
+    Très à l’écoute de vos besoins et de vos envies.">
+  <meta property="twitter:image" content="https://www.metalbdesign.fr/assets/images/metalbdesign.png">
+  <meta name="google-site-verification" content="zUrx2KQRWGTISeEFu2-K7YQwQvfcV50mQi2LynkxpjA" />
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <%# <script src="jquery-3.4.0.min.js"></script> %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Khula' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Poiret-One' rel='stylesheet'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= stylesheet_link_tag "application", media: "all" , "data-turbolinks-track": "reload" %>
+  <%# <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> %>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <%# <link rel="stylesheet" href="css/bootstrap-glyphicons.css" type="text/css"> %>
+  <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+</head>
+
+<body id="bodyAll">
+  <%= render "shared/navbar" %>
+
+  <%if notice %>
+    <p class="notice"><%= notice %></p>
+  <% end %>
+
+  <%= yield %>
+
+  <% if alert %>
+  <p class="alert alert-warning" role="alert"><%= alert %></p>
+  <% end %>
+
+  <%= render "shared/footer" %>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script type="text/javascript" data-turbolinks-eval=false>
+    console.log("I'm only run once on the initial page load");
+  </script>
+</body>
+</html>

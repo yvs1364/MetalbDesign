@@ -1,0 +1,218 @@
+<div class="container-fluid" style="margin-bottom: 2%;">
+  <h1 class="titleShow"><%= @item.name %></h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-8">
+        <div class="modal-content">
+          <% @item.photos.each do |photo| %>
+          <div class="mySlides">
+            <%= cl_image_tag photo.key, height: 900, width: 900, :crop=>"fill" %>
+          </div>
+          <% end %>
+          <!-- Next/previous controls -->
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+      </div>
+
+
+
+      <div class="col-md-4 ml-auto">
+        <div class="description" style="margin-bottom: 5%;">
+          <p style="font-size: 1.5em;"><%= @item.description %></p>
+        </div>
+
+        <div class="thumbnail-slider">
+          <div class="thumbnail-container">
+            <% @item.photos.each_with_index do |photo, index| %>
+            <div class="item">
+              <%= cl_image_tag photo.key, class: "demo", :onclick => "currentSlide(#{index + 1})"%>
+            </div>
+            <% end %>
+
+          </div>
+          <div class="controls">
+          </div>
+        </div>
+      </div>
+
+      <div class="col justify-content-center" style="margin-top: 1% !important;">
+          <% if @item.reviews.blank? %>
+          <div style="margin-inline: 10%;">
+            <h2 style="text-align: center;">Soyez le premier à commenter </h2> 
+            
+           <%= render "reviews/formreview" %>
+        </div>
+      </div>
+          <% else %>
+          <div class="col-lg-6">
+            <% @item.reviews.order(created_at: :desc).each do | review| %>
+            <div class="comments">
+               
+                <h1 style="margin-bottom: 2%; padding: 20px; border-bottom: 1px solid black;"><%= review.title %>
+                  <% if user_signed_in? %>
+                    <%= link_to edit_item_review_path(@item, review) do %>
+                     <i class="fa fa-pencil" style="color: gray;"></i>
+                    <% end %>
+                    <%= link_to  item_review_path(@item, review), method: :delete, data: { confirm:  "tes sur de vouloir supprimé ce commentaire Zehbi ?" } do %>
+                      <i class="fa fa-trash" style="color: gray;"></i>
+                    <% end %>
+                  <% end %>
+                </h1>
+                <p> <%= review.content %></p> 
+                <p style="font-size: 1.10em"> Écrit le:  <%= review.created_at.strftime("%d/%m/%Y") %></p>
+              <p style="font-size: 1.25em;">Par - <%= review.name %></p>
+            </div>
+            <% end %>
+            </div>
+            <div class="col-lg-6" id="col-wrap"> 
+              <div id="sideform">
+                <h2>Laisser un commentaire</h2>
+                <%= render "reviews/formreview" %>
+                </div>
+              </div>
+            </div>
+        <% end %>
+        </div>
+    </div>
+  </div>
+</div>
+</div>
+<script type="text/javascript">
+    var slideIndex = 1;
+      showSlides(slideIndex);
+
+    // Next/previous controls
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("demo");
+      if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+          }
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace("active", "");
+          }
+          slides[slideIndex-1].style.display = "block";
+          dots[slideIndex-1].className += " active";
+        }
+  </script>
+  <script type="text/javascript">
+
+    var controls=document.querySelector(".controls");
+    var container=document.querySelector(".thumbnail-container");
+    var allBox=container.children;
+    var containerWidth=container.offsetWidth;
+    var margin=10;
+    var items=0;
+    var totalItems=0;
+    var jumpSlideWidth=0;
+
+
+  // item setup per slide
+
+  responsive=[
+  {breakPoint:{width:0,item:1}}, //if width greater than 0 (1 item will show)
+  {breakPoint:{width:150,item:2}}, //if width greater than 600 (2  item will show)
+  {breakPoint:{width:900,item:4}} //if width greater than 1000 (4 item will show)
+  ]
+
+  function load(){
+   for(let i=0; i<responsive.length;i++){
+    if(window.innerWidth>responsive[i].breakPoint.width){
+      items=responsive[i].breakPoint.item
+    }
+  }
+  start();
+}
+
+function start(){
+ var totalItemsWidth=0
+ for(let i=0;i<allBox.length;i++){
+     // width and margin setup of items
+     allBox[i].style.width=(containerWidth/items)-margin + "px";
+     allBox[i].style.margin=(margin/2)+ "px";
+     totalItemsWidth+=containerWidth/items;
+     totalItems++;
+   }
+
+  // thumbnail-container width set up
+  container.style.width=totalItemsWidth + "px";
+
+  // slides controls number set up
+  const allSlides=Math.ceil(totalItems/items);
+  const ul=document.createElement("ul");
+  for(let i=1;i<=allSlides;i++){
+    const li=document.createElement("li");
+    li.id=i;
+    li.innerHTML=i;
+    li.setAttribute("onclick","controlSlides(this)");
+    ul.appendChild(li);
+    if(i==1){
+      li.className="active";
+    }
+  }
+  controls.appendChild(ul);
+}
+
+    // when click on numbers slide to next slide
+    function controlSlides(ele){
+       // select controls children  'ul' element
+       const ul=controls.children;
+
+       // select ul children 'li' elements;
+       const li=ul[0].children
+
+
+       var active;
+
+       for(let i=0;i<li.length;i++){
+        if(li[i].className=="active"){
+          // find who is now active
+          active=i;
+          // remove active class from all 'li' elements
+          li[i].className="";
+        }
+      }
+       // add active class to current slide
+       ele.className="active";
+
+       var numb=(ele.id-1)-active;
+       jumpSlideWidth=jumpSlideWidth+(containerWidth*numb);
+       container.style.marginLeft=-jumpSlideWidth + "px";
+     }
+
+     window.onload=load();
+
+   </script>
+  <script type="text/javascript">
+  $(function() {
+      var offset = $("#sideform").offset();
+      var topPadding = 75;
+      if($(window).width()>768){
+
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > offset.top) {
+                $("#sideform").stop().animate({
+                    marginTop: $(window).scrollTop() - offset.top + topPadding
+                });
+            } else {
+                $("#sideform").stop().animate({
+                    marginTop: 0
+                });
+            }   
+        });
+      }
+  });
+</script>

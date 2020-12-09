@@ -1,0 +1,152 @@
+.row{
+  margin-right: auto !important;
+}
+
+.modal-content {
+  display: block;
+  background-color: transparent !important;
+  margin-bottom: 10px;
+}
+
+#caption {
+  text-align: center;
+  background-color: rgba(220,220,220,.1);
+  padding: 1px;
+  height: 10px;
+}
+
+.mySlides {
+  display: none;
+  width: 100%;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(220,220,220,.1);
+  color: black;
+  text-decoration: none;
+}
+
+.caption-container {
+  text-align: center;
+  background-color: rgba(220,220,220,.1);
+  padding: 5px;
+}
+
+img.demo {
+  opacity: 0.6;
+  width: 100%;
+
+}
+
+.demo.active {
+  opacity: 1;
+}
+
+img.hover-shadow {
+  transition: 0.3s;
+  height: 12em;
+  padding-bottom: 3px;
+  margin-right: -1px;
+  padding: 4px;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.mySlides img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  box-shadow: 7px 7px 20px rgba(219, 203, 189, 0.4);
+}
+
+.description{
+  margin-right: -50%;
+}
+
+
+@media (min-width: 100px) and (max-width: 349px){
+  .mySlides img{
+    width: 250px;
+    height: 100%;
+
+  }
+  .description{
+    margin-right: 0%;
+  }
+  .modal-content{
+    margin-bottom: 20%;
+  }
+}
+
+
+@media (min-width: 350px) and (max-width: 419px) {
+  .mySlides img{
+    width: 300px;
+    height: 100%;
+  }
+  .modal-content {
+    margin: auto;
+    width: 300px;
+    margin-bottom: 50px;
+  }
+
+  .mySlides {
+    display: none;
+    width: 300px;
+  }
+  .description{
+    margin-right: 0%;
+  }
+}
+@media (min-width: 420px) and (max-width: 768px) {
+  .mySlides img{
+    width: 350px;
+    height: 100%;
+  }
+  .modal-content {
+    margin: auto;
+    width: 350px;
+    margin-bottom: 10px;
+  }
+  .description{
+    margin-right: 0%;
+  }
+  .modal-content{
+    margin-bottom: 50px;
+  }
+}
+@media (min-width: 490px) and (max-width: 768px){
+  .mySlides img{
+    width: 400px;
+    height: 100%;
+  }
+  .modal-content {
+    margin: auto;
+    width: 400px;
+    margin-bottom: 50px;
+  }
+  .description{
+    margin-right: 0%;
+  }
+}
