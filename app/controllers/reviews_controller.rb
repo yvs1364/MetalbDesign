@@ -29,13 +29,13 @@ class ReviewsController < ApplicationController
   def update
     @item = Item.find(params[:item_id])
     @review = @item.reviews.find(params[:id])
-      if @review.update(params_review_edit)
-        flash[:notice] = "You accomplished a task!"
-       redirect_to item_path(@item, anchor: "review-#{@review.id}")
-      else
-        flash[:alert] = "Il faut 20 caractères mini"
-        redirect_to edit_item_review_path
-      end
+    if @review.update(params_review_edit)
+      flash[:notice] = "You accomplished a task!"
+      redirect_to item_path(@item, anchor: "review-#{@review.id}")
+    else
+      flash[:alert] = "Il faut 20 caractères mini"
+      redirect_to edit_item_review_path
+    end
     authorize @review
   end
 

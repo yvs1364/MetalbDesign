@@ -5,10 +5,6 @@ class ItemsController < ApplicationController
 
   def index
     @items = policy_scope(Item).order(created_at: :desc)
-    # respond_to do |format|
-    #   format.html
-    #   format.json { render json: @items }
-    # end
   end
 
   def new
@@ -26,7 +22,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.user_id = current_user.id
     if @item.save
-      # pour vérifier si il y a des photos ajouter et si oui ça les affiche idem pour update
+      # pour verifier si il y a des photos ajouter et si oui ça les affiche idem pour update
       if params[:item][:photos].present?
         params[:item][:photos].each do |photo|
           @item.photos.attach(photo)

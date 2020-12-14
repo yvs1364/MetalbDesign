@@ -41,7 +41,7 @@ gem "light_gallery_rails", git: "https://github.com/lucmousinho/light-gallery-ra
 gem "turbolinks_render"
 gem "jquery-ui-rails"
 gem "jquery-turbolinks"
-gem 'mini_racer'
+gem "mini_racer"
 # gem "cookies_eu"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
