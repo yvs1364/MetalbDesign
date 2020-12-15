@@ -8,7 +8,7 @@
         <% item.photos.each do |photo| %>
         <% tof.push(photo.key) %>
         <% end %>
-        <%= cl_image_tag tof.first, id: "image-container", :crop => "fill" %>
+        <%= cl_image_tag tof.first, id: "image-container", :crop => "fill", :quality=>"auto"  %>
       </div>
       <div class="product-info">
         <div class="name"><%= item.name %></div>

@@ -15,7 +15,7 @@
 
   <div id="links" class="links">
     <%= link_to root_path, :class => current_class?(root_path) do %> <%= fa_icon "home" %> Accueil <% end %>
-    <%= link_to items_path, :class => current_class?(items_path) do %> <%= fa_icon "pencil" %>Mes réalisations <% end %>
+    <%= link_to items_path, :class => current_class?(items_path) do %> <%= fa_icon "pencil" %> Mes réalisations <% end %>
     <%= link_to new_contact_path, :class => current_class?(new_contact_path) do %> <%= fa_icon "phone" %> Me contacter <% end %>
     <% if user_signed_in? %>
     <%= link_to "Créer un meuble", new_item_path, :class => current_class?(new_item_path) %>

@@ -6,7 +6,7 @@
         <div class="modal-content">
           <% @item.photos.each do |photo| %>
           <div class="mySlides">
-            <%= cl_image_tag photo.key, height: 900, width: 900, :crop=>"fill" %>
+            <%= cl_image_tag photo.key, height: 900, width: 900, :crop=>"fill", :quality=>"auto" %>
           </div>
           <% end %>
           <!-- Next/previous controls -->

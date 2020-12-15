@@ -45,14 +45,14 @@
   <h1>Mes dernières réalistaions</h1>
   <br>
   <div class="carde">
-    <%  @items.order(id: :desc).first(3).each do |item| %>
+    <%  @items.each do |item| %>
     <%= link_to  item_path(item) do %>
     <div class="card-trip">
         <% tof=[] %>
       <% item.photos.each do |photo| %>
       <% tof.push(photo.key) %>
         <% end %>
-      <%= cl_image_tag tof.first, :crop=>"fill" %>
+      <%= cl_image_tag tof.first, :crop=>"fill", :quality=>"auto"  %>
 
       <div class="card-trip-infos">
         <div>

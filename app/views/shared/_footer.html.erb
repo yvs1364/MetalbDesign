@@ -1,6 +1,6 @@
 <div class="website-info">
   <div class="wrapper">
-    <div class="website-info__container text-center">
+    <div class="website-info__container">
       <div class="row">
         <div class="col-sm-4 website-info__item">
           <p class="larger-font">Contact:</p>
@@ -8,15 +8,18 @@
           <p class="large-font"><i><%= fa_icon "phone" %></i> : Tél: 07.78.82.09.73</p>
         </div>
         <div class="col-sm-4 website-info__item">
-          <p class="pacifico-font larger-font">Suivez moi:</p>
-          <a href="#" target="_blank" class="social-media-link"><i class="fa fa-fw fa-facebook"></i></a>
+          <p class="larger-font">Navigation:</p>
+            <%= link_to root_path, class: "large-font-nav" do %> <%= fa_icon "home" %> Accueil <% end %><br>
+            <%= link_to items_path, class: "large-font-nav" do %> <%= fa_icon "pencil" %> Mes réalisations <% end %><br>
+            <%= link_to new_contact_path(new_contact_path), class: "large-font-nav" do %> <%= fa_icon "phone" %> Me contacter <% end %>
         </div>
         <div class="col-sm-4 website-info__item">
+           <p class="larger-font">Admin:</p>
           <% if user_signed_in? %>
-        <p>- <%= link_to "Reviews json", api_v1_reviews_path, class: "large-font" %></p>
-         <p>- <%= link_to "Items json ", api_v1_items_path, class: "large-font" %><p>
+          <p>- <%= link_to "Reviews json", api_v1_reviews_path, class: "large-font" %></p>
+          <p>- <%= link_to "Items json ", api_v1_items_path, class: "large-font" %><p>
           <% else %>
-          <%= link_to new_user_session_path do %><p id="co"><i><%= fa_icon "user" %></i> Ce connecté (seulement pour les admins)</p>
+          <%= link_to new_user_session_path, class: "large-font-co" do %><i><%= fa_icon "user" %></i>: Ce connecté
           <% end %>
           <% end %>
         </div>
