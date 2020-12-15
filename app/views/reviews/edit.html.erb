@@ -1,8 +1,9 @@
 <div class="container-fluid" >
   <div class="container">
+   <%= link_to "Back", item_path(@item), class: "btn btn-dark"  %>
     <%= simple_form_for([ @item, @review ]) do |f| %>
       <%= f.input :content %>
-      <%= f.button :submit, class: "btn btn-success" %>
+      <%=  f.submit "Mettre à jour", class: "btn btn-success" %>
     <% end %>
   </div>
 </div>
