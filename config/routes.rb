@@ -19,7 +19,7 @@ namespace :api, defaults: {format: 'json'} do
 end
 
   root to: 'pages#home'
-  resources :items, :path => "realisations" do
+  resources :items, :path => "réalisations" do
     resources :reviews
     member do
       delete "destroy_multiple/", action: :destroy_multiple, as: :destroy_multiple

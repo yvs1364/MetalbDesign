@@ -3,5 +3,5 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require jquery.mobile
-// = require_tree .
+//= require_tree .
 
