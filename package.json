@@ -6,21 +6,27 @@
     "@rails/actiontext": "^6.0.3-2",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
-    "@rails/webpacker": "^6.0.0-pre.1",
+    "@rails/webpacker": "^6.0.0-beta.2",
     "@splidejs/splide": "^2.4.14",
     "bootstrap": "^4.5.3",
     "jquery": "^3.5.1",
     "mdbootstrap": "^4.19.1",
     "popper.js": "^1.16.1",
-    "sweetalert2": "^10.10.1",
     "trix": "^1.2.0",
     "turbolinks": "^5.2.0",
     "webkul-micron": "^1.1.6",
-    "webpack": "^4.44.2"
+    "webpack-cli": "^4.2.0"
   },
   "version": "0.1.0",
   "devDependencies": {
     "@webpack-cli/init": "^1.1.0",
-    "webpack-dev-server": "^3.11.0"
+    "@webpack-cli/serve": "^1.2.0",
+    "webpack": "^5.11.1",
+    "webpack-dev-server": "^3.11.1"
+  },
+  "babel": {
+    "presets": [
+      "./node_modules/@rails/webpacker/package/babel/preset.js"
+    ]
   }
 }

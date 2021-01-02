@@ -23,17 +23,3 @@ require("channels")
 
 require("trix")
 require("@rails/actiontext")
-
-import { showSlide } from "../components/showslide";
-import { thumbnail } from "../components/thumbnail";
-import { selectedPicture } from "../components/selectPicture"
-import { moveForm } from "../components/moveform";
-
-document.addEventListener('turbolinks:load', () => {
-  // Call your JS functions here
-  showSlide();
-  thumbnail();
-  selectedPicture();
-  moveForm();
-  moveArrow();
-});
